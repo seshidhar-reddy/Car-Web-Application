@@ -1,0 +1,72 @@
+{% load static %}
+{% static "system_images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Preferences</title>
+    <link rel="stylesheet" href="{% static 'css/suggest.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Our Preferences</h1>
+    </header>
+    <form action="" method="post" class="ff">
+        {% csrf_token %}
+        <h2>Select the Car Type</h2>
+        <select id="select_car" name="select_car">
+            <option value="~~~Select Car Type~~~">Select Car Type</option>
+            <option value="All">All</option>
+            <option value="1">Sedan</option>
+            <option value="2">SUV</option>
+        </select>
+        <h2>Select the Price Range</h2>
+        <select id="select_price" name="select_price">
+            <option value="~~~Select Price Range~~~">Select Price Range</option>
+            <option value="All">All</option>
+            <option value="1">5-10 Lakhs</option>
+            <option value="2">10-15 Lakhs</option>
+            <option value="3">15-20 Lakhs</option>
+            <option value="4">20-25 Lakhs</option>
+        </select>
+        <br>
+        <input type="submit" class="butt" value="Submit">
+    </form>
+    {{ price }}
+    {{ car }}
+    {{ car_1 }}
+    {% if car_1 %}
+    {% for car in car_1 %}
+    <div id="a" class="sub">
+        <div class="rating">
+        <h1>{{car.name}}</h1>
+        <h2>Price: {{car.Price}}</h2>
+        <h2>Our Rating: {{car.Rating}}/5.00</h2>
+        </div>
+        <div class="flex-1">
+                <img  class ="creta" src="{{baseUrl}}/{{car.car_image}}" alt="Car_image">
+            <div class =flex-2>
+            <div class>
+                <h2>Pros: </h2>
+                <ul>
+                    <li><h3>{{car.pro1}}</h3></li>
+                    <li><h3>{{car.pro2}}</h3></li>
+                    <li><h3>{{car.pro3}}</h3></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Cons: </h2>
+                <ul>
+                    <li><h3>{{car.con1}}</h3></li>
+                    <li><h3>{{car.con2}}</h3></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

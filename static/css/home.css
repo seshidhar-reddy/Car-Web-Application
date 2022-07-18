@@ -1,0 +1,123 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.flexx{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: nowrap;
+}
+body{
+    margin: 1%;
+}
+header,h1{
+    background-color: rgb(12, 58, 58);
+    padding: 1.25% 1% ;
+    text-align: center;
+    border-radius: 10px;
+}
+header h1,h1{
+    color: burlywood;
+    font-family: 'Permanent Marker', cursive;
+}
+nav{
+    background-color: rgb(9, 78, 78);
+    padding: 1.5% 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+}
+nav a{
+    color: burlywood;
+    text-decoration: none;
+    padding: 3%;
+    font-family: 'Fredoka One', cursive;
+    font-size: 125%;
+}
+nav a:hover{
+    color: wheat;
+}
+main section a{
+    padding: 1%;
+}
+main section h2{
+    background-color: teal;
+    padding: 1% 0.75%;
+    border-radius: 10px;
+    text-align: center;
+    color: burlywood;
+    font-family: 'Rock Salt', cursive;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+footer{
+    margin-top: 1%;
+    text-align: left;
+    padding: 1% 0.75%;
+    background-color: rgb(9, 78, 78);
+    border-radius: 10px;
+}
+footer a{
+    color: burlywood;
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 125%;
+    padding: 3%;
+}
+.container{
+    width: 85%;
+    height: 650px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    padding-bottom: 1%;
+}
+.slide{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.slide img{
+    width: 100%;
+    height: auto;
+}
+#Prev{
+    position: absolute;
+    top: 45%;
+    left: 2%;
+    z-index: 10;
+    color: black;
+    cursor: pointer;
+}
+#Next{
+    position: absolute;
+    top: 45%;
+    right: 2%;
+    z-index: 10;
+    color: black;
+    cursor: pointer;
+}
+.search{
+    display: flex;
+    margin-bottom: 1%;
+    justify-content: center;
+}
+input{
+    width: 50%;
+    padding: 1% 0.75%;
+    text-align: left;
+    border-radius: 5px;
+}
+.fa-search{
+    color: rgb(12, 58, 58);
+}
+button :hover{
+    cursor: pointer;
+}
+footer a :hover{
+    color: wheat;
+    cursor: pointer;
+}

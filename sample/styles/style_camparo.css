@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 1%;
+}
+.flexx{
+    display: flex;
+    justify-content: space-around;
+}
+input[type=text]{
+    padding-left: 2%;
+    width: 40%;
+    font-size: larger;
+}
+h1{
+    padding: 1% 0.75%;
+    background-color: rgb(12, 58, 58);
+    color: burlywood;
+    font-family: 'Permanent Marker', cursive;
+    border-radius: 10px;
+    text-align: center;
+}
+.btn{
+    padding: 0.75% 1.25%;
+    background-color: rgb(12, 58, 58);
+    color: burlywood;
+    border-radius: 8px;
+    font-size: larger;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.compare{
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+table{
+    text-align: center;
+    width: 60%;
+    margin: 2%;
+}
+table,tr,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    font-family: 'Permanent Marker', cursive;
+}
+th{
+    background-color: rgb(12, 58, 58);
+    color: burlywood;
+}

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/prifile.css' %}">
+    <style>
+        .as{
+            color: black;
+            font-family: 'Permanent Marker', cursive;
+        }
+        .as1{
+            color: black;
+            font-family: 'Permanent Marker', cursive;
+            text-decoration-color: black;
+        }
+        .flexx{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            border: solid black 3px;
+            margin: 1%;
+        }
+        .select_3{
+            padding-top: 2%;
+            padding-bottom: 2%;
+            padding-left: 2%;
+            padding-right: 2%;
+            margin: auto;
+            border: 10px solid rgb(32, 94, 102);
+            background-color: rgb(186, 223, 215);
+        }
+    </style>
+</head>
+<body>
+    <div class="select_3">
+    <h2 class = "as">Username : {{request.user}}</h2>
+    <div>
+        <h2 class = "as">Requests For your Cars: </h2>
+        {% for i in arr %}
+        <div class="flexx">
+            <h4 class="as" width = "30%">{{i.name}}</h4>
+            <h4 class="as" width = "30%">{{i.car.Car_name}}</h4>
+            <h4 class="as">{{i.name.email}}</h4>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        <h2 class = "as">Cars you Requested: </h2>
+        {% for j in arr1 %}
+        <div class="flexx">
+            <h4 class="as" width = "30%">{{j.Car_name}}</h4>
+            <h4 class="as" width = "30%">{{j.Price}}</h4>
+            <a href="#" class="as1"><h4>Details</h4></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

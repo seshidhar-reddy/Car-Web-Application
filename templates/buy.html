@@ -1,0 +1,115 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        .flexx_2{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding : 2% 2% 2% 2%;
+            padding-top: 5%;
+            background-color: rgb(32, 94, 102,0.6);
+            border-radius: 10px;   
+            margin-left: 4%;
+            margin-right: 4%;
+            flex-wrap: wrap;
+        }
+        .flexx_4{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          padding-top: 4%;
+        }
+        .flexx_3{
+          display: flex;
+          flex-direction: row;
+          justify-content: left;
+          padding-top: 4%;
+        }
+    </style>
+</head>
+<body>
+  <div class = "flexx_4">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" style = "background-color: rgb(32, 94, 102);" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Sort
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="{% url 'sort_by_popularity' %}">Popularity</a></li>
+      <li><a class="dropdown-item" href="{% url 'sort_by_lowest' %}">Price Lowest First</a></li>
+      <li><a class="dropdown-item" href="{% url 'sort_by_highest' %}">Price Highest First</a></li>
+    </ul>
+  </div>
+</div>
+<!--
+<div class = "flexx_3">
+<h5> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Company:  &nbsp; &nbsp;</h5>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" >
+  <label class="form-check-label">Hyundai &nbsp; &nbsp; &nbsp; &nbsp;</label>
+</div>
+<div>
+<input class="form-check-input" type="checkbox" id="check2" name="option2" value="something" >
+<label class="form-check-label">Volkwagen &nbsp; &nbsp; &nbsp; &nbsp;</label>
+</div>
+<div>
+  <input class="form-check-input" type="checkbox" id="check2" name="option2" value="something" >
+  <label class="form-check-label">Skoda  &nbsp; &nbsp;  &nbsp; &nbsp;</label>
+</div>
+<div>
+    <input class="form-check-input" type="checkbox" id="check2" name="option2" value="something" >
+    <label class="form-check-label">MG &nbsp; &nbsp; &nbsp; &nbsp;</label>
+</div>
+<div>
+  <input class="form-check-input" type="checkbox" id="check2" name="option2" value="something" >
+  <label class="form-check-label">Kia &nbsp; &nbsp; &nbsp; &nbsp;</label>
+</div>
+<div>
+  <input class="form-check-input" type="checkbox" id="check2" name="option2" value="something" >
+  <label class="form-check-label">Tata &nbsp; &nbsp; &nbsp; &nbsp;</label>
+</div>
+<div>
+  <input class="form-check-input" type="checkbox" id="check2" name="option2" value="something" >
+  <label class="form-check-label">Maruti &nbsp; &nbsp; &nbsp; &nbsp;</label>
+</div>
+<input type="submit" value="Filter" class="btn btn-primary" style = "background-color: rgb(32, 94, 102);">
+</div>
+-->
+<br>
+<br>
+    <div class="flexx_2">
+    {% for car_detail in car_details %}
+    <div class="card" style="width: 25%; border-radius: 20px; border : solid 5px white;margin-right : 5%; margin-bottom : 5%;" style = "background-color: rgb(32, 94, 102); color :rgb(32, 94, 102)">
+        <img class="card-img-top" src="{{baseUrl}}/{{car_detail.photo1}}" style=" border-top-left-radius: 20px; border-top-right-radius: 20px; background-color: rgb(12, 58, 58);" alt="Card image cap" width = 200px height="170px">
+        <div style = "border-radius: 20px; background-color: rgb(186, 223, 215);">
+        <div class="card-body" style = "background-color: rgb(186, 223, 215);">
+          <h5 class="card-title" style = "background-color: rgb(186, 223, 215);">{{car_detail.Company}} {{car_detail.Car_name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style = "background-color: rgb(186, 223, 215);">Model : {{car_detail.Price}}</li>
+          <li class="list-group-item" style = "background-color: rgb(186, 223, 215);">Model : {{car_detail.Car_Model}}</li>
+          <li class="list-group-item" style = "background-color: rgb(186, 223, 215);">Car Year : {{car_detail.Car_Year}}</li>
+          <li class="list-group-item" style = "background-color: rgb(186, 223, 215);">Kilometres Driven : {{car_detail.Car_KM}}</li>
+        </ul>
+        <div class="card-body" >
+          <a href="#" class="card-link">View Details</a>
+          <a href='{% url "process_request" car_detail.id %}' class="card-link">Request</a>
+        </div>
+      </div>
+      </div>
+    {% endfor %}
+    </div>
+    <br>
+    <br>
+    <br>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

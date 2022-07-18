@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <title>PowerDrift_ABCD</title>
+    <link rel="stylesheet" href="{% static '/css/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>PowerDrift</h1>
+    </header>
+    <nav>
+        <a href="">Reviews</a>
+        <a href="{% url 'comparo' %}">Comparisions</a>
+        <a href="{% url 'suggest' %}">Our Suggestions</a>
+        <a href="{% url 'sell' %}">Sell Used Cars</a>
+        <a href="{% url 'buy' %}">Buy Used Cars</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'profile' %}"><img src="{% static 'system_images/user.png' %}" width = "25px" alt="User_Image"></a>
+    </nav>
+    <main>
+        <section>
+            <div class="container">
+                <i style='font-size:48px' class='fas' id="Prev">&#xf104;</i>
+                <i style='font-size:48px' class='fas' id="Next">&#xf105;</i>
+                <div class="slide">
+                    <img src="{% static 'system_images/cre.jpg' %}" alt="Kushaq" id="lastclone" >
+                    <img src="{% static 'system_images/n.jpg' %}" alt="Creta" >
+                    <img src="{% static 'system_images/sel.jpg' %}" alt="Harrrier" >
+                    <img src="{% static 'system_images/x7.jpg' %}" alt="Hector" >
+                    <img src="{% static 'system_images/cre.jpg' %}" alt="Kushaq" >
+                    <img src="{% static 'system_images/n.jpg' %}" alt="Creta" id="firstclone" >
+                </div>
+            </div>
+            <br>
+        </section>
+        <h1>By Our Youtube Channel</h1>
+        <section>
+            <h2>Latest Car Reviews</h2>
+            <iframe width="33%" height="250"src="https://www.youtube.com/embed/IYXQ1lAkLEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250"src="https://www.youtube.com/embed/IqAfMbj5aVQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/JSPgbFZGgYw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section>
+            <h2>Latest Comparisions</h2>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/cXbETviuWWg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/B9E86-gZ7mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/blDerWqsT8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section>
+            <h2>Latest Bike Reviews</h2>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/k0UrWxEQwJo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/k0sAANZdQH0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/X8SArMHDugs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section>
+            <h2>Latest DragRaces by us</h2>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/jiFBfBZ7Mts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/yU59WvKPXQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="33%" height="250" src="https://www.youtube.com/embed/6uW6PwEVNig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section>
+            <br>
+            <h3>Follow us on </h3>
+            <br>
+            <a href="https://www.instagram.com/PowerDrift/" target="_blank"><img src="{% static 'system_images/R.png' %}" alt="Instagram" width="3%" height="3%"></a>
+            <a href="https://in.linkedin.com/company/powerdrift-studios-private-limited" target="_blank"><img src="{% static 'system_images/80808_linkedin-logo-white-png.png' %}" alt="Linkedin" width="3%" height="3%"></a>
+            <a href="https://www.youtube.com/user/powerdriftofficial" target="_blank"><img src="{% static 'system_images/R (1).png' %}" alt="YouTube" width="3%" height="3%"></a>
+            <a href="https://www.facebook.com/POWERDRIFTOFFICIAL" target="_blank"><img src="{% static 'system_images/1509135366facebook-symbol-png-logo.png' %}" alt="Facebook" width="3%" height="3%"></a>
+        </section>
+    </main>
+    <footer>
+        <a href="#">About Us</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms and Conditions</a>
+    </footer>
+    <script src="{% static '/js/webdev.js' %}"></script>
+</body>
+</html>

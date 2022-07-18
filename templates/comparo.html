@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/comparo.css' %}">
+</head>
+<body>
+    <h1>Comparisions</h1>
+    <form action="" method="post">
+    {% csrf_token %}
+    <div class="flexx">
+            <input type="text" id="car1" name = "car1" placeholder="Car1" >
+            <h3>VS</h3>
+            <input type="text" id="car2" name = "car2" placeholder="Car2">
+            <button type="submit" id="btn" class="btn">Submit</button>
+    </div>
+    </form>
+    <br>
+    <br>
+    {% if car1 or car2 %}
+    <div class="compare">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th class="car_name1">{{car1.name}}</th>
+                    <th class="spec">SPECIFICATION</th>
+                    <th class="car_name2">{{car2.name}}</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <tr>
+                    <td><h3 id="spec11">{{car1.Price}}</h3></td>
+                    <td><h3 id="specname1">PRICE</h3></td>
+                    <td><h3 id="spec21">{{car2.Price}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3 id="spec12">{{car1.engine}}</h3></td>
+                    <td><h3 id="specname2">ENGINE</h3></td>
+                    <td><h3 id="spec22">{{car2.engine}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3 id="spec13">{{car1.powertorque}}</h3></td>
+                    <td><h3 id="specname3">POWER AND TORQUE</h3></td>
+                    <td><h3 id="spec23">{{car2.powertorque}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3 id="spec14">{{car1.gearbox}}</h3></td>
+                    <td><h3 id="specname4">GEARBOX</h3></td>
+                    <td><h3 id="spec24">{{car2.gearbox}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3 id="spec15">{{car1.fueleconomy}}</h3></td>
+                    <td><h3 id="specname5">FUEL ECONOMY</h3></td>
+                    <td><h3 id="spec25">{{car2.fueleconomy}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3 id="spec16">{{car1.wheelbase}}</h3></td>
+                    <td><h3 id="specname6">WHEELBASE</h3></td>
+                    <td><h3 id="spec26">{{car2.wheelbase}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3 id="spec17">{{car1.infoitainment}}</h3></td>
+                    <td><h3 id="specname7">INFOTAINMENT</h3></td>
+                    <td><h3 id="spec27">{{car2.infoitainment}}</h3></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</body>
+</html>

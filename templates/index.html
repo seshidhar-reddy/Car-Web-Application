@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div  class = 'select_3'>
+    <form action="{% %}" method="post">
+        {% csrf_token %}
+    <div class = 'select_1'>
+        <select name="" id="select_company" class="form-select" >
+            <option value="temp">Select Company</option>
+            {% for company in companys %}
+            <option value={{company.name}}>{{company.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class = 'select_1'>
+        <select name="" id="select_car" class="form-select" onchange ="myopt1(this.value)">
+            <option value="temp">Select Car</option>
+        </select>
+    </div>
+    <div class = 'select_1'>
+        <select name="" id="" class="form-select">
+            <option value="temp">Registration Year</option>
+            {% for year in years %}
+            <option value={{year}}>{{year}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class = 'select_1'>
+        <select name="" id="select_model" class="form-select">
+            <option value="temp">Select Model</option>
+        </select>
+    </div>
+    <div class = 'select_1'>
+        Number of Kilometres driven: <input type="text" name="" id="" class = "form-input">
+    </div>
+    <div class = 'select_1'>
+        Registration Number: <input type="text" name="" id="" class = "form-input">
+    </div>
+    {% for photo in photos %}
+    <div class = 'select_1'>
+    Photo {{photo}} : <input type="file" name="" id="" class = "form-input">
+    </div>
+    {% endfor %}
+    <div class = 'select_2'>
+        <input type="submit" value="Submit" class = "btn btn-primary" style = "background-color: rgb(32, 94, 102);">
+    </div>
+    </form>
+</div>
+    {% block javascript %}
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function(){
+            $('select#select_company').change(function () {
+                var optionSelected = $(this).find("option:selected");
+                var company_name = optionSelected.text();
+                $.ajax({                       
+                    type: "POST",
+                    url: '{% url "get_cars_ajax" %}',
+                    data: {
+                        'company_id': company_name,    
+                        'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val(),   
+                    },
+                    success: function (data) { 
+                        let html_data = '<option value="">Select Car</option>';
+                        data.forEach(function (data) {
+                            html_data += `<option value="${data.name}">${data.name}</option>`
+                        });
+                        $("#select_car").html(html_data); 
+                    }
+                });
+            });
+            });
+        $(document).ready(function(){
+            $('select#select_car').change(function () { 
+                var optionSelected = $(this).find("option:selected");
+                var car_name = optionSelected.text();
+                $.ajax({                       
+                    type: "POST",
+                    url: '{% url "get_models_ajax" %}',
+                    data: {
+                        'car_id': car_name,    
+                        'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val(),   
+                    },
+                    success: function (data) { 
+                        let html_data = '<option value="">Select Model</option>';
+                        data.forEach(function (data) {
+                            html_data += `<option value="${data.name}">${data.name}</option>`
+                        });
+                        $("#select_model").html(html_data); 
+                    }
+                });
+        })
+    })
+    </script>
+
+    {% endblock javascript %}
+</body>
+</html>
